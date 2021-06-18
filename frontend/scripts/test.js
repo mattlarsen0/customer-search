@@ -1,3 +1,3 @@
-const jest = require("jest")
+const jest = require("jest");
 
 jest.run();
