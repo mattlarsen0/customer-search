@@ -23,13 +23,14 @@ namespace backend.Controllers
         }
 
         [HttpGet]
-        public ContentResult Search()
+        public ContentResult Search(string search = null, string filter_by_company_name = null)
         {
-            var convertedCustomers = databaseRepo.Search().Select(c => customerAdapter.ConvertToModel(c));
+            var foundCustomers = databaseRepo.Search(search, filter_by_company_name)
+                .Select(c => customerAdapter.ConvertToModel(c));
 
             var model = new CustomerListModel()
             {
-                customers = convertedCustomers
+                customers = foundCustomers
             };
 
             return getJsonResponse(model);

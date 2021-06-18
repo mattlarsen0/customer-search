@@ -7,7 +7,6 @@ using backendTests.DomainObjects;
 using Moq;
 using Newtonsoft.Json;
 using NUnit.Framework;
-using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace backend.Tests 
 {
@@ -28,34 +27,47 @@ namespace backend.Tests
             mockRepo.Reset();
             mockAdapter.Reset();
         }
+        
+        [Test]
+        public void CustomerApi_Search_CallsProvidedSearchWithParams()
+        {
+            var searchQuery = "testSearchQuery";
+            var companyNameQuery = "testCompanyName";
+
+            mockRepo.Setup(r => r.Search(searchQuery, companyNameQuery)).Returns(testCustomers);
+            var controller = getTestController(mockRepo.Object, mockAdapter.Object);
+
+            controller.Search(search: searchQuery, filter_by_company_name: companyNameQuery);
+            mockRepo.Verify(r => r.Search(searchQuery, companyNameQuery), Times.Once);
+        }
 
         [Test]
         public void CustomerApi_Search_CallsProvidedSearch()
         {
-            mockRepo.Setup(r => r.Search()).Returns(testCustomers);
+            mockRepo.Setup(r => r.Search(It.IsAny<string>(), It.IsAny<string>())).Returns(testCustomers);
             var controller = getTestController(mockRepo.Object, mockAdapter.Object);
 
             controller.Search();
-            mockRepo.Verify(r => r.Search(), Times.Once);
+            mockRepo.Verify(r => r.Search(null, null), Times.Once);
         }
         
         [Test]
         public void CustomerApi_Search_CallsProvidedAdapter()
         {
-            mockRepo.Setup(r => r.Search()).Returns(testCustomers);
+            mockRepo.Setup(r => r.Search(It.IsAny<string>(), It.IsAny<string>())).Returns(testCustomers);
             var controller = getTestController(mockRepo.Object, mockAdapter.Object);
 
-            controller.Search();
+            controller.Search(string.Empty, string.Empty);
             mockAdapter.Verify(a => a.ConvertToModel(It.IsAny<Customer>()), Times.Exactly(testCustomers.Length));
         }
         
         [Test]
         public void CustomerApi_Search_ReturnsJson()
         {
-            mockRepo.Setup(r => r.Search()).Returns(testCustomers);
+            mockRepo.Setup(r => r.Search(It.IsAny<string>(), It.IsAny<string>())).Returns(testCustomers);
             var controller = getTestController(mockRepo.Object, mockAdapter.Object);
 
-            var response = controller.Search();
+            var response = controller.Search(string.Empty, string.Empty);
             
             Assert.DoesNotThrow(() => JsonConvert.DeserializeObject<CustomerListModel>(response.Content));
             Assert.That(response.ContentType, Is.EqualTo("application/json"));
