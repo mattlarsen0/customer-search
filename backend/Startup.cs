@@ -49,8 +49,8 @@ namespace backend
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    name: "customer",
+                    pattern: "{controller=CustomerView}/{action=Index}");
             });
         }
     }

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace backend.Controllers
 {
     [ApiController]
+    [Route("api/customer")]
     public class CustomerApiController : Controller
     {
         [HttpGet]
