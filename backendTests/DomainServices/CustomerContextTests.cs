@@ -20,6 +20,9 @@ namespace backendTests.DomainServices
         private CustomerContext getTestDbContext()
         {
             var context = new CustomerContext();
+
+            // re-create db if it exists
+            context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
 
             return context;
