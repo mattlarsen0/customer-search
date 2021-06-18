@@ -3,7 +3,7 @@ import webpackConfig from "../webpack.config.js";
 
 const compiler = webpack(webpackConfig);
 
-compiler.run((err, res) => {
+compiler.run((err) => {
     if (err) {
         console.error(err);
     }
