@@ -1,10 +1,12 @@
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const path = require("path");
-const distPath = path.resolve(__dirname, "../dist");
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import path from "path";
+
+const __dirname = path.resolve();
+const distPath = path.resolve(__dirname, "../backend/wwwroot/bundles");
 const env = process.env.NODE_ENV;
 const generateSourceMaps = env == "development";
 
-module.exports = {
+export default {
   mode: env || "production",
   entry: "./src/js/index.js",
   output: {
