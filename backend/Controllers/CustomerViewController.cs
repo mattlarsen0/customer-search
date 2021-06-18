@@ -9,7 +9,7 @@ using backend.Models;
 
 namespace backend.Controllers
 {
-    public class CustomerController : Controller
+    public class CustomerViewController : Controller
     {
         public IActionResult Index()
         {
