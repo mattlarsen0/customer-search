@@ -58,7 +58,7 @@ namespace backendTests.DomainServices
         public void Domain_Validation_CompanyNameInvalid(string invalidName)
         {
             var customer = getInitializedCustomer();
-            customer.Company = invalidName;
+            customer.CompanyName = invalidName;
 
             Assert.That(isDomainObjectValid(customer), Is.False);
         }
@@ -85,7 +85,7 @@ namespace backendTests.DomainServices
         public void Domain_Validation_CompanyNameValid(string validName)
         {
             var customer = getInitializedCustomer();
-            customer.Company = validName;
+            customer.CompanyName = validName;
 
             Assert.That(isDomainObjectValid(customer), Is.True);
         }
@@ -105,7 +105,7 @@ namespace backendTests.DomainServices
             {
                 FirstName = "testFirstName",
                 LastName = "testLastName",
-                Company = "testCompanyName"
+                CompanyName = "testCompanyName"
             };
         }
     }

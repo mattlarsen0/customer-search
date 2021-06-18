@@ -31,7 +31,7 @@ namespace backendTests.DomainServices
             {
                 FirstName = "dbTestFirstName",
                 LastName = "dbTestLastName",
-                Company = "dbTestCompanyName"
+                CompanyName = "dbTestCompanyName"
             };
         }
     }

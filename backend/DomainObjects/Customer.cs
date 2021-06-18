@@ -19,6 +19,6 @@ namespace backend.DomainObjects
 
         [Required(AllowEmptyStrings = true)]
         [MaxLength(MaxNameLength)]
-        public string Company { get; set; }
+        public string CompanyName { get; set; }
     }
 }
