@@ -7,7 +7,7 @@ namespace backend.DomainServices
 {
     public class CustomerContext : DbContext
     {
-        public DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
