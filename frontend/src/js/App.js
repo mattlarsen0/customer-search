@@ -1,7 +1,7 @@
-import "../scss/App.scss";
+import React from "react";
 
 export const App = () => {
     return (
-        "HELLO FROM REACT WORLD!"
+        <h1>HELLO FROM REACT WORLD!</h1>
     );
 };
