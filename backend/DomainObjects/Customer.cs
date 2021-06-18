@@ -6,6 +6,9 @@ namespace backend.DomainObjects
     {
         public const int MaxNameLength = 50;
 
+        [Key]
+        public int Id { get; set; }
+
         [Required]
         [MaxLength(MaxNameLength)]
         public string FirstName { get; set; }
