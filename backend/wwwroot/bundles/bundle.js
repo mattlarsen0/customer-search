@@ -16,7 +16,47 @@
   \***********************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"App\": () => (/* binding */ App)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nconst App = () => {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", null, \"HELLO FROM REACT WORLD!\");\n};\n\n//# sourceURL=webpack://customer-search-react/./src/js/App.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"App\": () => (/* binding */ App)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _context_CustomerContext_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./context/CustomerContext.js */ \"./src/js/context/CustomerContext.js\");\n/* harmony import */ var _components_CustomerList_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/CustomerList.js */ \"./src/js/components/CustomerList.js\");\n\n\n\nconst App = () => {\n  const [customerState] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({\n    customers: []\n  });\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_context_CustomerContext_js__WEBPACK_IMPORTED_MODULE_1__.CustomerContext.Provider, {\n    value: customerState\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_CustomerList_js__WEBPACK_IMPORTED_MODULE_2__.CustomerList, null));\n};\n\n//# sourceURL=webpack://customer-search-react/./src/js/App.js?");
+
+/***/ }),
+
+/***/ "./src/js/components/CustomerList.js":
+/*!*******************************************!*\
+  !*** ./src/js/components/CustomerList.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"CustomerList\": () => (/* binding */ CustomerList)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _hooks_useCustomers_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../hooks/useCustomers.js */ \"./src/js/hooks/useCustomers.js\");\n/* harmony import */ var _CustomerRow_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CustomerRow.js */ \"./src/js/components/CustomerRow.js\");\n\n\n\nconst CustomerList = () => {\n  const {\n    customers\n  } = (0,_hooks_useCustomers_js__WEBPACK_IMPORTED_MODULE_1__.useCustomers)();\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"customer-list\"\n  }, customers.map(c => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_CustomerRow_js__WEBPACK_IMPORTED_MODULE_2__.CustomerRow, {\n    key: c.id,\n    customer: c\n  })));\n};\n\n//# sourceURL=webpack://customer-search-react/./src/js/components/CustomerList.js?");
+
+/***/ }),
+
+/***/ "./src/js/components/CustomerRow.js":
+/*!******************************************!*\
+  !*** ./src/js/components/CustomerRow.js ***!
+  \******************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"CustomerRow\": () => (/* binding */ CustomerRow)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nconst CustomerRow = props => {\n  const {\n    firstName,\n    lastName,\n    companyName\n  } = props.customer;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"customer-list-row\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"customer-name\"\n  }, \"Name: \", firstName, \" \", lastName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"customer-company-name\"\n  }, \"Company: \", companyName));\n};\n\n//# sourceURL=webpack://customer-search-react/./src/js/components/CustomerRow.js?");
+
+/***/ }),
+
+/***/ "./src/js/context/CustomerContext.js":
+/*!*******************************************!*\
+  !*** ./src/js/context/CustomerContext.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"CustomerContext\": () => (/* binding */ CustomerContext)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nconst CustomerContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createContext({\n  customers: []\n});\n\n//# sourceURL=webpack://customer-search-react/./src/js/context/CustomerContext.js?");
+
+/***/ }),
+
+/***/ "./src/js/hooks/useCustomers.js":
+/*!**************************************!*\
+  !*** ./src/js/hooks/useCustomers.js ***!
+  \**************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"useCustomers\": () => (/* binding */ useCustomers)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _context_CustomerContext_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../context/CustomerContext.js */ \"./src/js/context/CustomerContext.js\");\n\n\nconst useCustomers = () => {\n  var customerContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_CustomerContext_js__WEBPACK_IMPORTED_MODULE_1__.CustomerContext);\n  return {\n    customers: customerContext.customers\n  };\n};\n\n//# sourceURL=webpack://customer-search-react/./src/js/hooks/useCustomers.js?");
 
 /***/ }),
 

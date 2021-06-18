@@ -6,14 +6,44 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="customer-list"
-      />
+        class="customer-list-row"
+      >
+        <div
+          class="customer-name"
+        >
+          Name: 
+          first
+           
+          last
+        </div>
+        <div
+          class="customer-company-name"
+        >
+          Company: 
+          company
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="customer-list"
-    />
+      class="customer-list-row"
+    >
+      <div
+        class="customer-name"
+      >
+        Name: 
+        first
+         
+        last
+      </div>
+      <div
+        class="customer-company-name"
+      >
+        Company: 
+        company
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

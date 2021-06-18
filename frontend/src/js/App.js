@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import { CustomerContext } from "./context/CustomerContext.js";
+import { CustomerList } from "./components/CustomerList.js";
 
 export const App = () => {
+    const [customerState] = useState({
+        customers: []
+    });
+
     return (
-        <h1>HELLO FROM REACT WORLD!</h1>
+        <CustomerContext.Provider value={customerState}>
+            <CustomerList />
+        </CustomerContext.Provider>
     );
 };
