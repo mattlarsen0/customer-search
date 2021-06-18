@@ -4,11 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/bundles/bundle.css" />
 </head>
 <body>
-    <div class="container">
+    <div id="root"></div>
+    <div>
         @RenderBody()
     </div>
-    @await RenderSectionAsync("Scripts", required: false)
+    <script src="~/bundles/bundle.js"></script>
 </body>
 </html>
