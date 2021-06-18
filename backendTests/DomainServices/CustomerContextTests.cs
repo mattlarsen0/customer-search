@@ -1,5 +1,5 @@
-using backend.DomainObjects;
 using backend.DomainServices;
+using backendTests.DomainObjects;
 using NUnit.Framework;
 
 namespace backendTests.DomainServices
@@ -12,7 +12,7 @@ namespace backendTests.DomainServices
         {
             using (var dbContext = getTestDbContext())
             {
-                dbContext.Customers.Add(getValidCustomer());
+                dbContext.Customers.Add(CustomerTests.GetValidCustomer());
                 Assert.DoesNotThrowAsync(async () => await dbContext.SaveChangesAsync());
             }
         }
@@ -23,16 +23,6 @@ namespace backendTests.DomainServices
             context.Database.EnsureCreated();
 
             return context;
-        }
-
-        private Customer getValidCustomer()
-        {
-            return new Customer()
-            {
-                FirstName = "dbTestFirstName",
-                LastName = "dbTestLastName",
-                CompanyName = "dbTestCompanyName"
-            };
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace backendTests.DomainServices
+namespace backendTests.DomainObjects
 {
     [TestFixture]
     public class CustomerTests
@@ -39,7 +39,7 @@ namespace backendTests.DomainServices
         [TestCaseSource(nameof(InvalidNameTestStrings))]
         public void Domain_Validation_FirstNameInvalid(string invalidName)
         {
-            var customer = getInitializedCustomer();
+            var customer = GetValidCustomer();
             customer.FirstName = invalidName;
 
             Assert.That(isDomainObjectValid(customer), Is.False);
@@ -48,7 +48,7 @@ namespace backendTests.DomainServices
         [TestCaseSource(nameof(InvalidNameTestStrings))]
         public void Domain_Validation_LastNameInvalid(string invalidName)
         {
-            var customer = getInitializedCustomer();
+            var customer = GetValidCustomer();
             customer.LastName = invalidName;
 
             Assert.That(isDomainObjectValid(customer), Is.False);
@@ -57,7 +57,7 @@ namespace backendTests.DomainServices
         [TestCaseSource(nameof(InvalidCompanyNameTestStrings))]
         public void Domain_Validation_CompanyNameInvalid(string invalidName)
         {
-            var customer = getInitializedCustomer();
+            var customer = GetValidCustomer();
             customer.CompanyName = invalidName;
 
             Assert.That(isDomainObjectValid(customer), Is.False);
@@ -66,7 +66,7 @@ namespace backendTests.DomainServices
         [TestCaseSource(nameof(ValidNameTestStrings))]
         public void Domain_Validation_FirstNameValid(string validName)
         {
-            var customer = getInitializedCustomer();
+            var customer = GetValidCustomer();
             customer.FirstName = validName;
 
             Assert.That(isDomainObjectValid(customer), Is.True);
@@ -75,7 +75,7 @@ namespace backendTests.DomainServices
         [TestCaseSource(nameof(ValidNameTestStrings))]
         public void Domain_Validation_LastNameValid(string validName)
         {
-            var customer = getInitializedCustomer();
+            var customer = GetValidCustomer();
             customer.LastName = validName;
 
             Assert.That(isDomainObjectValid(customer), Is.True);
@@ -84,7 +84,7 @@ namespace backendTests.DomainServices
         [TestCaseSource(nameof(ValidCompanyNameTestStrings))]
         public void Domain_Validation_CompanyNameValid(string validName)
         {
-            var customer = getInitializedCustomer();
+            var customer = GetValidCustomer();
             customer.CompanyName = validName;
 
             Assert.That(isDomainObjectValid(customer), Is.True);
@@ -99,7 +99,7 @@ namespace backendTests.DomainServices
             return validationResults.Count == 0;
         }
 
-        private Customer getInitializedCustomer()
+        public static Customer GetValidCustomer()
         {
             return new Customer()
             {
