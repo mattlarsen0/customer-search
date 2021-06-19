@@ -86,7 +86,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var _App_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App.js */ \"./src/js/App.js\");\n\n\n\nreact_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App_js__WEBPACK_IMPORTED_MODULE_2__.App, null)), document.getElementById(\"root\"));\n\n//# sourceURL=webpack://customer-search-react/./src/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var _App_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App.js */ \"./src/js/App.js\");\n/* harmony import */ var _css_customers_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../css/customers.css */ \"./src/css/customers.css\");\n\n\n\n\nreact_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App_js__WEBPACK_IMPORTED_MODULE_2__.App, null)), document.getElementById(\"root\"));\n\n//# sourceURL=webpack://customer-search-react/./src/js/index.js?");
 
 /***/ }),
 
@@ -97,6 +97,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"fetchCustomers\": () => (/* binding */ fetchCustomers)\n/* harmony export */ });\nconst fetchCustomers = async searchOptions => {\n  const urlParams = {\n    search: searchOptions.name,\n    filter_by_company_name: searchOptions.companyName\n  };\n  var url = new URL(\"https://localhost:5001/api/customer\");\n  url.search = new URLSearchParams(urlParams).toString();\n  return await fetch(url).then(response => response.json()).catch(() => alert(\"Could not reach server, try again later\"));\n};\n\n//# sourceURL=webpack://customer-search-react/./src/js/utils/fetchCustomers.js?");
+
+/***/ }),
+
+/***/ "./src/css/customers.css":
+/*!*******************************!*\
+  !*** ./src/css/customers.css ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://customer-search-react/./src/css/customers.css?");
 
 /***/ }),
 

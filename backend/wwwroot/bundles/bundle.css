@@ -1,0 +1,22 @@
+.customer-list {
+    margin-bottom: 10px;
+}
+
+.customer-list-row {
+    background: rgb(215, 236, 245);
+    padding: 5px;
+    max-width: 300px;
+}
+
+.customer-list-row:nth-child(2n) {
+    background: rgb(170, 208, 223);
+}
+
+.customer-name, .customer-company-name {
+    display: inline-block;
+    padding: 5px;
+}
+
+input {
+    margin-left: 5px;
+}

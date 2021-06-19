@@ -30,8 +30,8 @@ export const App = () => {
 
     return (
         <CustomerContext.Provider value={customerState}>
-            <CustomerList />
             <label>Search<CustomerSearchField /></label>
+            <CustomerList />
         </CustomerContext.Provider>
     );
 };
