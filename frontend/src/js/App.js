@@ -20,6 +20,24 @@ export const App = () => {
         customerState.setSearchOptions = (searchOptions) => {
             customerState.searchOptions = searchOptions;
             updateCustomerList(searchOptions, customerState, setCustomerState);
+
+            // Update url to reflect new search options
+            let urlParams = {};
+
+            if (searchOptions.name)
+            {
+                urlParams.search = searchOptions.name;
+            }
+
+            if (searchOptions.companyName)
+            {
+                urlParams.filter_by_company_name = searchOptions.companyName;
+            }
+
+            var url = new URL("https://localhost:5001/");
+            url.search = new URLSearchParams(urlParams).toString();
+
+            window.history.pushState({}, "Customer Search Demo", url);
         };
 
         customerState.fetchAndSetCustomers = (searchOptions) => {
