@@ -21,7 +21,7 @@ export const CompanyDropdown = () => {
 
     return (
         <select data-testid="select" onChange={onChange}>
-            <option value="">None Selected</option>
+            <option value="">All Companies</option>
             {companyOptions}
         </select>
     );
