@@ -32,10 +32,10 @@ export const App = () => {
     return (
         <CustomerContext.Provider value={customerState}>
             <div>
-                <label>Search<CustomerSearchField /></label>
+                <label>Search: <CustomerSearchField /></label>
             </div>
             <div>
-                <CompanyDropdown />
+                <label>Filter by company: <CompanyDropdown /></label>
             </div>
             <CustomerList />
         </CustomerContext.Provider>

@@ -7,22 +7,25 @@ Object {
     <div>
       <div>
         <label>
-          Search
+          Search: 
           <input
             type="text"
           />
         </label>
       </div>
       <div>
-        <select
-          data-testid="select"
-        >
-          <option
-            value=""
+        <label>
+          Filter by company: 
+          <select
+            data-testid="select"
           >
-            None
-          </option>
-        </select>
+            <option
+              value=""
+            >
+              None Selected
+            </option>
+          </select>
+        </label>
       </div>
       <div
         class="customer-list"
@@ -32,22 +35,25 @@ Object {
   "container": <div>
     <div>
       <label>
-        Search
+        Search: 
         <input
           type="text"
         />
       </label>
     </div>
     <div>
-      <select
-        data-testid="select"
-      >
-        <option
-          value=""
+      <label>
+        Filter by company: 
+        <select
+          data-testid="select"
         >
-          None
-        </option>
-      </select>
+          <option
+            value=""
+          >
+            None Selected
+          </option>
+        </select>
+      </label>
     </div>
     <div
       class="customer-list"

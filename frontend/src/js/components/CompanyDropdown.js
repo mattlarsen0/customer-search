@@ -6,9 +6,11 @@ export const CompanyDropdown = () => {
     const {customers} = useCustomers();
     const {searchOptions, setSearchOptions} = useCustomerSearchOptions();
 
-    var companies = [...new Set(customers.map(c => c.companyName))];
+    const allCompanyNames = customers.map(c => c.companyName).filter(c => c);
 
-    var companyOptions = companies.map(c => (
+    const companies = [...new Set(allCompanyNames)];
+
+    const companyOptions = companies.map(c => (
         <option key={`company-${c}`} value={c}>{c}</option>
     ));
 
@@ -19,7 +21,7 @@ export const CompanyDropdown = () => {
 
     return (
         <select data-testid="select" onChange={onChange}>
-            <option value="">None</option>
+            <option value="">None Selected</option>
             {companyOptions}
         </select>
     );
