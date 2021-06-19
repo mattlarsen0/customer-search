@@ -24,7 +24,7 @@ test("can render", () => {
 
 test("does call hook on change", (done) => {
     render(<CustomerSearchField />);
-    var input = screen.getByRole("textbox");
+    const input = screen.getByRole("textbox");
 
     userEvent.type(input, testName);
 

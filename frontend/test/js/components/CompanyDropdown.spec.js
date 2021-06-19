@@ -51,7 +51,7 @@ test("can render", () => {
 
 test("does call hook on change", (done) => {
     render(<CompanyDropdown />);
-    var companySelect = screen.getByTestId("select");
+    const companySelect = screen.getByTestId("select");
 
     fireEvent.change(companySelect, { target: { value: testCompanyName } });
 

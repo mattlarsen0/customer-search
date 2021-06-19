@@ -5,7 +5,7 @@ export const fetchCustomers = async (searchOptions) => {
         filter_by_company_name: searchOptions.companyName
     };
 
-    var url = new URL("https://localhost:5001/api/customer");
+    const url = new URL("https://localhost:5001/api/customer");
     url.search = new URLSearchParams(urlParams).toString();
 
     return await fetch(url)
