@@ -5,6 +5,8 @@ namespace backend.Models
 {
     public class CustomerModel
     {
+        public int id { get; set; }
+
         [Required]
         [MaxLength(Customer.MaxNameLength)]
         public string firstName { get; set; }

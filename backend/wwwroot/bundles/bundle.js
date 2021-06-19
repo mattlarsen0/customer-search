@@ -16,7 +16,7 @@
   \***********************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"App\": () => (/* binding */ App)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _context_CustomerContext_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./context/CustomerContext.js */ \"./src/js/context/CustomerContext.js\");\n/* harmony import */ var _components_CustomerList_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/CustomerList.js */ \"./src/js/components/CustomerList.js\");\n\n\n\nconst App = () => {\n  const [customerState] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({\n    customers: []\n  });\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_context_CustomerContext_js__WEBPACK_IMPORTED_MODULE_1__.CustomerContext.Provider, {\n    value: customerState\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_CustomerList_js__WEBPACK_IMPORTED_MODULE_2__.CustomerList, null));\n};\n\n//# sourceURL=webpack://customer-search-react/./src/js/App.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"App\": () => (/* binding */ App)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _context_CustomerContext_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./context/CustomerContext.js */ \"./src/js/context/CustomerContext.js\");\n/* harmony import */ var _components_CustomerList_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/CustomerList.js */ \"./src/js/components/CustomerList.js\");\n/* harmony import */ var _utils_fetchCustomers_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils/fetchCustomers.js */ \"./src/js/utils/fetchCustomers.js\");\n/* harmony import */ var _components_CustomerSearchField_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/CustomerSearchField.js */ \"./src/js/components/CustomerSearchField.js\");\n\n\n\n\n\nconst App = () => {\n  const [customerState, setCustomerState] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({\n    customers: [],\n    searchOptions: {\n      name: \"\",\n      companyName: \"\"\n    },\n    setSearchOptions: () => {},\n    fetchAndSetCustomers: () => {}\n  });\n  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {\n    customerState.setSearchOptions = searchOptions => {\n      customerState.searchOptions = searchOptions;\n      updateCustomerList(searchOptions, customerState, setCustomerState);\n    };\n\n    customerState.fetchAndSetCustomers = searchOptions => {\n      updateCustomerList(searchOptions, customerState, setCustomerState);\n    };\n\n    updateCustomerList(customerState.searchOptions, customerState, setCustomerState);\n  }, []);\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_context_CustomerContext_js__WEBPACK_IMPORTED_MODULE_1__.CustomerContext.Provider, {\n    value: customerState\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_CustomerList_js__WEBPACK_IMPORTED_MODULE_2__.CustomerList, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"label\", null, \"Search\", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_CustomerSearchField_js__WEBPACK_IMPORTED_MODULE_4__.CustomerSearchField, null)));\n};\n\nconst updateCustomerList = async (searchOptions, customerState, setCustomerState) => {\n  const result = await (0,_utils_fetchCustomers_js__WEBPACK_IMPORTED_MODULE_3__.fetchCustomers)(searchOptions);\n  customerState.customers = result.customers;\n  setCustomerState({ ...customerState\n  });\n};\n\n//# sourceURL=webpack://customer-search-react/./src/js/App.js?");
 
 /***/ }),
 
@@ -40,13 +40,33 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/js/components/CustomerSearchField.js":
+/*!**************************************************!*\
+  !*** ./src/js/components/CustomerSearchField.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"CustomerSearchField\": () => (/* binding */ CustomerSearchField)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _hooks_useCustomerSearchOptions_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../hooks/useCustomerSearchOptions.js */ \"./src/js/hooks/useCustomerSearchOptions.js\");\n\n\nconst CustomerSearchField = () => {\n  const {\n    searchOptions,\n    setSearchOptions\n  } = (0,_hooks_useCustomerSearchOptions_js__WEBPACK_IMPORTED_MODULE_1__.useCustomerSearchOptions)();\n\n  const onChange = event => {\n    searchOptions.name = event.target.value;\n    setSearchOptions(searchOptions);\n  };\n\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", {\n    type: \"text\",\n    onChange: onChange\n  });\n};\n\n//# sourceURL=webpack://customer-search-react/./src/js/components/CustomerSearchField.js?");
+
+/***/ }),
+
 /***/ "./src/js/context/CustomerContext.js":
 /*!*******************************************!*\
   !*** ./src/js/context/CustomerContext.js ***!
   \*******************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"CustomerContext\": () => (/* binding */ CustomerContext)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nconst CustomerContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createContext({\n  customers: []\n});\n\n//# sourceURL=webpack://customer-search-react/./src/js/context/CustomerContext.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"CustomerContext\": () => (/* binding */ CustomerContext)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nconst CustomerContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createContext({\n  customers: [],\n  searchOptions: {\n    name: \"\",\n    companyName: \"\"\n  }\n});\n\n//# sourceURL=webpack://customer-search-react/./src/js/context/CustomerContext.js?");
+
+/***/ }),
+
+/***/ "./src/js/hooks/useCustomerSearchOptions.js":
+/*!**************************************************!*\
+  !*** ./src/js/hooks/useCustomerSearchOptions.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"useCustomerSearchOptions\": () => (/* binding */ useCustomerSearchOptions)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _context_CustomerContext_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../context/CustomerContext.js */ \"./src/js/context/CustomerContext.js\");\n\n\nconst useCustomerSearchOptions = () => {\n  var customerContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_CustomerContext_js__WEBPACK_IMPORTED_MODULE_1__.CustomerContext);\n  return {\n    searchOptions: customerContext.searchOptions,\n    setSearchOptions: customerContext.setSearchOptions\n  };\n};\n\n//# sourceURL=webpack://customer-search-react/./src/js/hooks/useCustomerSearchOptions.js?");
 
 /***/ }),
 
@@ -56,7 +76,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"useCustomers\": () => (/* binding */ useCustomers)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _context_CustomerContext_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../context/CustomerContext.js */ \"./src/js/context/CustomerContext.js\");\n\n\nconst useCustomers = () => {\n  var customerContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_CustomerContext_js__WEBPACK_IMPORTED_MODULE_1__.CustomerContext);\n  return {\n    customers: customerContext.customers\n  };\n};\n\n//# sourceURL=webpack://customer-search-react/./src/js/hooks/useCustomers.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"useCustomers\": () => (/* binding */ useCustomers)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _context_CustomerContext_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../context/CustomerContext.js */ \"./src/js/context/CustomerContext.js\");\n\n\nconst useCustomers = () => {\n  var customerContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_CustomerContext_js__WEBPACK_IMPORTED_MODULE_1__.CustomerContext);\n  return {\n    customers: customerContext.customers,\n    fetchAndSetCustomers: customerContext.fetchAndSetCustomers\n  };\n};\n\n//# sourceURL=webpack://customer-search-react/./src/js/hooks/useCustomers.js?");
 
 /***/ }),
 
@@ -67,6 +87,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var _App_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App.js */ \"./src/js/App.js\");\n\n\n\nreact_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App_js__WEBPACK_IMPORTED_MODULE_2__.App, null)), document.getElementById(\"root\"));\n\n//# sourceURL=webpack://customer-search-react/./src/js/index.js?");
+
+/***/ }),
+
+/***/ "./src/js/utils/fetchCustomers.js":
+/*!****************************************!*\
+  !*** ./src/js/utils/fetchCustomers.js ***!
+  \****************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"fetchCustomers\": () => (/* binding */ fetchCustomers)\n/* harmony export */ });\nconst fetchCustomers = async searchOptions => {\n  const urlParams = {\n    search: searchOptions.name,\n    filter_by_company_name: searchOptions.companyName\n  };\n  var url = new URL(\"https://localhost:5001/api/customer\");\n  url.search = new URLSearchParams(urlParams).toString();\n  return await fetch(url).then(response => response.json()).catch(() => alert(\"Could not reach server, try again later\"));\n};\n\n//# sourceURL=webpack://customer-search-react/./src/js/utils/fetchCustomers.js?");
 
 /***/ }),
 

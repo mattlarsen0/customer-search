@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { CustomerContext } from "../context/CustomerContext.js";
 
-export const useCustomers = () => {
+export const useCustomerSearchOptions = () => {
     var customerContext = useContext(CustomerContext);
 
     return {
-        customers: customerContext.customers,
-        fetchAndSetCustomers: customerContext.fetchAndSetCustomers
+        searchOptions: customerContext.searchOptions,
+        setSearchOptions: customerContext.setSearchOptions
     };
 };

@@ -14,6 +14,7 @@ namespace backend.ModelServices
         {
             return new CustomerModel()
             {
+                id = customer.Id,
                 firstName = customer.FirstName,
                 lastName = customer.LastName,
                 companyName = customer.CompanyName

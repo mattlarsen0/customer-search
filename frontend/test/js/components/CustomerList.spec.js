@@ -27,6 +27,7 @@ const testCustomer3 = {
 jest.mock("../../../src/js/hooks/useCustomers.js", () => ({
     useCustomers: () => ({
         customers: [testCustomer1, testCustomer2, testCustomer3],
+        fetchAndSetCustomers: jest.fn()
     }),
     __esModule: true
 }));

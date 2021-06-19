@@ -8,12 +8,24 @@ Object {
       <div
         class="customer-list"
       />
+      <label>
+        Search
+        <input
+          type="text"
+        />
+      </label>
     </div>
   </body>,
   "container": <div>
     <div
       class="customer-list"
     />
+    <label>
+      Search
+      <input
+        type="text"
+      />
+    </label>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
