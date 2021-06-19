@@ -9,9 +9,12 @@ namespace backendTests.DomainServices
     [TestFixture]
     public class CustomerRepositoryTests
     {
-        const string firstNameSearchQuery = "#1";
-        const string lastNameSearchQuery = "#2";
-        const string companyNameSearchQuery = "#3";
+        const string firstNameSearchQuery = "#1abc";
+        const string firstNameSearchUpper = "#1ABC";
+        const string lastNameSearchQuery = "#2abc";
+        const string lastNameSearchUpper = "#2ABC";
+        const string companyNameSearchQuery = "#3abc";
+        const string companyNameSearchUpper = "#3ABC";
 
         [SetUp]
         public void Setup()
@@ -35,6 +38,10 @@ namespace backendTests.DomainServices
         [TestCase(lastNameSearchQuery, companyNameSearchQuery)]
         [TestCase(firstNameSearchQuery, null)]
         [TestCase(lastNameSearchQuery, null)]
+        [TestCase(firstNameSearchUpper, null)]
+        [TestCase(lastNameSearchUpper, null)]
+        [TestCase(null, companyNameSearchUpper)]
+        [TestCase(null, companyNameSearchQuery)]
         [TestCase("", null)]
         [TestCase(null, "")]
         [TestCase(null, "  ")]
@@ -50,12 +57,12 @@ namespace backendTests.DomainServices
                 Assert.That(foundIds, Has.Member(testCustomer.Id));
             }
         }
-        /*
+        
         [TestCase("jkl;", "asdf")]
         [TestCase("test", "test")]
         [TestCase("fakeName", "444444444")]
         [TestCase(firstNameSearchQuery + "invalid", null)]
-        [TestCase(lastNameSearchQuery + "invalid", null)]*/
+        [TestCase(lastNameSearchQuery + "invalid", null)]
         [TestCase(null, companyNameSearchQuery + "invalid")]
         public void Repo_Search_ByNameDoesNotFind(string customerNameQuery, string companyNameQuery)
         {
@@ -83,9 +90,9 @@ namespace backendTests.DomainServices
         {
             return new Customer()
             {
-                FirstName = "#1-first",
-                LastName = "#2-last",
-                CompanyName = "#3-company",
+                FirstName = "#1abc-first",
+                LastName = "#2abc-last",
+                CompanyName = "#3abc-company",
             };
         }
 

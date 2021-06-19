@@ -21,15 +21,15 @@ namespace backend.DomainServices
             if (!string.IsNullOrWhiteSpace(nameQuery))
             {
                 filteredResults = filteredResults.Where(c => 
-                    c.FirstName.Contains(nameQuery) || 
-                    c.LastName.Contains(nameQuery)
+                    c.FirstName.Contains(nameQuery, StringComparison.InvariantCultureIgnoreCase) || 
+                    c.LastName.Contains(nameQuery, StringComparison.InvariantCultureIgnoreCase)
                 );
             }
 
             if (!string.IsNullOrWhiteSpace(companyNameQuery))
             {
                 filteredResults = filteredResults.Where(c => 
-                    c.CompanyName.Contains(companyNameQuery)
+                    c.CompanyName.Contains(companyNameQuery, StringComparison.InvariantCultureIgnoreCase)
                 );
             }
 
