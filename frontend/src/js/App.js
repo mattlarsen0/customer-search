@@ -6,11 +6,13 @@ import { CustomerSearchField } from "./components/CustomerSearchField.js";
 import { CompanyDropdown } from "./components/CompanyDropdown.js";
 
 export const App = () => {
+    const currentUrl = new URL(window.location);
+
     const [customerState, setCustomerState] = useState({
         customers: [],
         searchOptions: {
-            name: "",
-            companyName: ""
+            name: currentUrl.searchParams.get("search") ?? "",
+            companyName: currentUrl.searchParams.get("filter_by_company_name") ?? "",
         },
         setSearchOptions: () => {},
         fetchAndSetCustomers: () => {},
