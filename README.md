@@ -11,10 +11,6 @@ A simple React customer search application built with a C# backend.
 ## Setup and Configuration
 
 ### Building
-
-Install:
-
-Build commands
 1. In the `frontend` directory, Run `npm install` and `npm run build` to build js/css bundles (copied to `backend/wwwroot/bundles` directory automatically).
 2. In the `backend` directory, Run `dotnet run` to build and start the web server.
 3. If it does not exist, a database named `customer-test.db` will be created in the working directory.
