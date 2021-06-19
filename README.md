@@ -18,9 +18,10 @@ A simple React customer search application built with a C# backend.
 
 ## Other Commands
 * Backend Tests (Run in `backendTests` directory)
-  - Run NUnit tests: `dotnet test`
+  - NUnit: `dotnet test`
 * Frontend Tests (Run in `frontend` directory)
-  - Run Jest tests: `npm run test`
+  - Jest: `npm run test`
+  - ESLint: `npm run lint`
 
 ## Code Explanation
 C# and React were chosen because they are the most recent languages that I have professional experience with.
