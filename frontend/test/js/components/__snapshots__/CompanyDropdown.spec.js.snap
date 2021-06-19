@@ -1,43 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`basic render - matches snapshot 1`] = `
+exports[`can render 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <div>
-      <div>
-        <label>
-          Search
-          <input
-            type="text"
-          />
-        </label>
-      </div>
-      <div>
-        <select
-          data-testid="select"
-        >
-          <option
-            value=""
-          >
-            None
-          </option>
-        </select>
-      </div>
-      <div
-        class="customer-list"
-      />
-    </div>
-  </body>,
-  "container": <div>
-    <div>
-      <label>
-        Search
-        <input
-          type="text"
-        />
-      </label>
-    </div>
     <div>
       <select
         data-testid="select"
@@ -47,11 +13,49 @@ Object {
         >
           None
         </option>
+        <option
+          value="test company"
+        >
+          test company
+        </option>
+        <option
+          value="company2"
+        >
+          company2
+        </option>
+        <option
+          value="company3"
+        >
+          company3
+        </option>
       </select>
     </div>
-    <div
-      class="customer-list"
-    />
+  </body>,
+  "container": <div>
+    <select
+      data-testid="select"
+    >
+      <option
+        value=""
+      >
+        None
+      </option>
+      <option
+        value="test company"
+      >
+        test company
+      </option>
+      <option
+        value="company2"
+      >
+        company2
+      </option>
+      <option
+        value="company3"
+      >
+        company3
+      </option>
+    </select>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

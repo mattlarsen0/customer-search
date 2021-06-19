@@ -3,6 +3,7 @@ import { CustomerContext } from "./context/CustomerContext.js";
 import { CustomerList } from "./components/CustomerList.js";
 import { fetchCustomers } from "./utils/fetchCustomers.js";
 import { CustomerSearchField } from "./components/CustomerSearchField.js";
+import { CompanyDropdown } from "./components/CompanyDropdown.js";
 
 export const App = () => {
     const [customerState, setCustomerState] = useState({
@@ -30,7 +31,12 @@ export const App = () => {
 
     return (
         <CustomerContext.Provider value={customerState}>
-            <label>Search<CustomerSearchField /></label>
+            <div>
+                <label>Search<CustomerSearchField /></label>
+            </div>
+            <div>
+                <CompanyDropdown />
+            </div>
             <CustomerList />
         </CustomerContext.Provider>
     );

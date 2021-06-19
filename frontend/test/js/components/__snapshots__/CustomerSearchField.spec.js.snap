@@ -1,56 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`basic render - matches snapshot 1`] = `
+exports[`can render 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div>
-        <label>
-          Search
-          <input
-            type="text"
-          />
-        </label>
-      </div>
-      <div>
-        <select
-          data-testid="select"
-        >
-          <option
-            value=""
-          >
-            None
-          </option>
-        </select>
-      </div>
-      <div
-        class="customer-list"
+      <input
+        type="text"
       />
     </div>
   </body>,
   "container": <div>
-    <div>
-      <label>
-        Search
-        <input
-          type="text"
-        />
-      </label>
-    </div>
-    <div>
-      <select
-        data-testid="select"
-      >
-        <option
-          value=""
-        >
-          None
-        </option>
-      </select>
-    </div>
-    <div
-      class="customer-list"
+    <input
+      type="text"
     />
   </div>,
   "debug": [Function],
